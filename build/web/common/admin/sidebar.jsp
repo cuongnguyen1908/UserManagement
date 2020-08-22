@@ -4,7 +4,7 @@
 
 <!-- Sidebar -->
         <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href='<c:url value="/admin-home"/>'>
                 <div class="sidebar-brand-icon">
                     <img src="./template/admin/img/logo.png">
                 </div>
@@ -12,10 +12,16 @@
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href='<c:url value="/admin-home"/>'>
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href='<c:url value="/home"/>'>
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Home</span></a>
+            </li>
+            
             <hr class="sidebar-divider">
             <div class="sidebar-heading">
                 Features
@@ -28,9 +34,7 @@
                 <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Category</h6>
-                        <a class="collapse-item" href="#">Add new</a>
-                        <a class="collapse-item" href="#">Update</a>
-                        <a class="collapse-item" href="#">Delete</a>
+                        <a class="collapse-item" href='<c:url value="/admin-view"/>'>View</a>
                     </div>
                 </div>
             </li>

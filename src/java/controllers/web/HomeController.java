@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import services.IUserService;
-import utils.FormUtil;
+import utils.HashFunctions;
 import utils.SessionUtil;
 
 /**
@@ -78,17 +78,16 @@ public class HomeController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        System.out.println("Worked ");
         String action = request.getParameter("action");
         if (action != null && action.equals("login")) {
             UserDTO model = new UserDTO();
             model.setUsername(request.getParameter("username"));
-            model.setPassword(request.getParameter("password"));
+            String password = request.getParameter("password");
+            String passHash = HashFunctions.getHash(password.trim().getBytes(), "SHA-256");
+            model.setPassword(passHash);
             model = userService.findByUserNameAndPasswordAndStatus(model.getUsername(), model.getPassword(), true);
 
             if (model != null ) {
-                 System.out.println("Worked in model");
-
                 SessionUtil.getInstance().putValue(request, "USERMODEL", model);
                 if (model.getRole().getName().equals("user")) {
                     response.sendRedirect(request.getContextPath()+ "home");

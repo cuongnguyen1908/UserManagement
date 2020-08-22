@@ -7,6 +7,7 @@ package services.impl;
 
 import daos.IUserDAO;
 import dtos.UserDTO;
+import java.util.List;
 import javax.inject.Inject;
 import services.IUserService;
 
@@ -22,7 +23,48 @@ public class UserService implements IUserService{
 
     @Override
     public UserDTO findByUserNameAndPasswordAndStatus(String username, String password, boolean status) {
-        return userDAO.finByUserNameAndPasswordAndStatus(username, password, true);
+        return userDAO.findByUserNameAndPasswordAndStatus(username, password, true);
+    }
+
+    @Override
+    public List<UserDTO> findAll(boolean status) {
+        return userDAO.findAll(status);
+    }
+
+    @Override
+    public List<UserDTO> findAllByFullNameAndRoleAndStatus(String textSearch, Long roleId, boolean status) {
+        return userDAO.findAllByFullNameAndRoleAndStatus(textSearch, roleId, status);
+    }
+
+    @Override
+    public List<UserDTO> findAllByFullNameAndStatus(String textSearch, boolean status) {
+                return userDAO.findAllByFullNameAndStatus(textSearch, status);
+
+    }
+
+    @Override
+    public void delete(Long id, boolean status) {
+        userDAO.delete(id, status);
+    }
+
+    @Override
+    public UserDTO findUserByIdAndStatus(Long id, boolean status) {
+        return userDAO.findUserByIdAndStatus(id, status);
+    }
+
+    @Override
+    public Long save(UserDTO userDTO) {
+        return userDAO.save(userDTO);
+    }
+
+    @Override
+    public void update(UserDTO userDTO) {
+        userDAO.update(userDTO);
+    }
+
+    @Override
+    public boolean existUserByUsername(String username) {
+        return userDAO.existUserByUserName(username);
     }
     
     

@@ -5,12 +5,25 @@
  */
 package dtos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author nguyen
  */
 public class AbstractDTO<T> {
+
     private Long id;
+    private List<T> listResult = new ArrayList<>();
+
+    public List<T> getListResult() {
+        return listResult;
+    }
+
+    public void setListResult(List<T> listResult) {
+        this.listResult = listResult;
+    }
 
     public Long getId() {
         return id;
@@ -19,6 +32,5 @@ public class AbstractDTO<T> {
     public void setId(Long id) {
         this.id = id;
     }
-    
-    
+
 }

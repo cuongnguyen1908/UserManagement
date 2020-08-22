@@ -4,23 +4,21 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/common/web/header.jsp</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/services/impl/UserService.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/utils/MyConnection.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/decorators/login.jsp</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/login.jsp</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/decorators/web.jsp</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/web/home.jsp</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/META-INF/context.xml</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/admin/edit.jsp</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/web/HomeController.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/dtos/EditErrorDTO.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/impl/UserDAO.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/IUserDAO.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/WEB-INF/web.xml</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/index.jsp</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/services/IUserService.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/GenericDAO.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/common/taglib.jsp</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/common/admin/sidebar.jsp</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/admin/editError.jsp</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/dtos/RoleDTO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/dtos/UserDTO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/mapper/UserMapper.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/filter/AuthorizationFilter.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/impl/AbstractDAO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/impl/RoleDAO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/common/admin/topbar.jsp</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/ProcessEditController.java</file>
         </group>
     </open-files>
 </project-private>

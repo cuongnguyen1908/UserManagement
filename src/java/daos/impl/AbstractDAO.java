@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.naming.NamingException;
 import mapper.RowMapper;
+import org.apache.log4j.Logger;
 import utils.MyConnection;
 
 /**
@@ -24,6 +25,7 @@ import utils.MyConnection;
  */
 public class AbstractDAO<T> implements GenericDAO<T> {
 
+    static Logger logger = Logger.getLogger(Logger.class.getName());
 
     @Override
     public <T> List<T> query(String sql, RowMapper<T> rowMapper, Object... parameters) {
@@ -42,27 +44,29 @@ public class AbstractDAO<T> implements GenericDAO<T> {
                 results.add(rowMapper.mapRow(rs));
             }
             return results;
-        }catch (SQLException | NamingException e) {
+        } catch (SQLException | NamingException e) {
+            logger.error("AbstractDAO_SQLException | NamingException" + e.getMessage());
+
             e.printStackTrace();
             return null;
-        }finally {
+        } finally {
             try {
-                if (connection != null) {
-                    connection.close();
+                if (rs != null) {
+                    rs.close();
                 }
                 if (preStm != null) {
                     preStm.close();
                 }
-                if (rs != null) {
-                    rs.close();
+                if (connection != null) {
+                    connection.close();
                 }
-            }catch (SQLException e) {
+            } catch (SQLException e) {
+                logger.error("AbstractDAO_SQLException " + e.getMessage());
+                e.printStackTrace();
                 return null;
             }
         }
     }
-
-
 
     @Override
     public void update(String sql, Object... parameters) {
@@ -75,7 +79,9 @@ public class AbstractDAO<T> implements GenericDAO<T> {
             setParameter(preStm, parameters);
             preStm.executeUpdate();
             connection.commit();
-        }catch (SQLException | NamingException e) {
+        } catch (SQLException | NamingException e) {
+                                logger.error("AbstractDAO_SQLException " + e.getMessage());
+            e.printStackTrace();
             if (connection != null) {
                 try {
                     connection.rollback();
@@ -85,13 +91,14 @@ public class AbstractDAO<T> implements GenericDAO<T> {
             }
         } finally {
             try {
-                if (connection != null) {
-                    connection.close();
-                }
                 if (preStm != null) {
                     preStm.close();
                 }
+                if (connection != null) {
+                    connection.close();
+                }
             } catch (SQLException e2) {
+                logger.error("AbstractDAO_SQLException " + e2.getMessage());
                 e2.printStackTrace();
             }
         }
@@ -115,11 +122,13 @@ public class AbstractDAO<T> implements GenericDAO<T> {
             }
             connection.commit();
             return id;
-        } catch (SQLException | NamingException  e) {
+        } catch (SQLException | NamingException e) {
+            e.printStackTrace();
             if (connection != null) {
                 try {
                     connection.rollback();
                 } catch (SQLException e1) {
+                    logger.error("AbstractDAO_SQLException " + e1.getMessage());
                     e.printStackTrace();
                 }
             }
@@ -135,12 +144,13 @@ public class AbstractDAO<T> implements GenericDAO<T> {
                     preStm.close();
                 }
             } catch (SQLException e2) {
+                logger.error("AbstractDAO_SQLException " + e2.getMessage());
+
                 e2.printStackTrace();
             }
         }
         return null;
     }
-
 
     @Override
     public int count(String sql, Object... parameters) {
@@ -171,11 +181,12 @@ public class AbstractDAO<T> implements GenericDAO<T> {
                     rs.close();
                 }
             } catch (SQLException e) {
+                logger.error("AbstractDAO_SQLException " + e.getMessage());
+
                 return 0;
             }
         }
     }
-
 
     //set param
     private void setParameter(PreparedStatement preStm, Object... parameters) {
@@ -191,7 +202,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
                     preStm.setInt(index, (Integer) parameter);
                 } else if (parameter instanceof Timestamp) {
                     preStm.setTimestamp(index, (Timestamp) parameter);
-                }else if (parameter instanceof Boolean) {
+                } else if (parameter instanceof Boolean) {
                     preStm.setBoolean(index, (Boolean) parameter);
                 }
 //                else if (parameter == null) {
@@ -199,7 +210,8 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 //                }
 
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
+            logger.error("AbstractDAO_SQLException " + e.getMessage());
             e.printStackTrace();
         }
 

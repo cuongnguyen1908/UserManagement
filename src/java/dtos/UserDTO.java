@@ -17,7 +17,38 @@ public class UserDTO extends AbstractDTO<UserDTO>{
     private boolean status;
     private Long roleId;
     private RoleDTO role = new RoleDTO();
+    private String email;
+    private String phone;
+    private String photo;
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+    
+    
+
+    
+    
     
     
     public String getUsername() {
@@ -67,6 +98,7 @@ public class UserDTO extends AbstractDTO<UserDTO>{
     public void setRole(RoleDTO role) {
         this.role = role;
     }
+    
     
     
     

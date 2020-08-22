@@ -9,33 +9,47 @@ import dtos.RoleDTO;
 import dtos.UserDTO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.apache.log4j.Logger;
 
 /**
  *
  * @author nguyen
  */
 public class UserMapper implements RowMapper<UserDTO> {
-    
+
+    static Logger logger = Logger.getLogger(Logger.class.getName());
+
     @Override
     public UserDTO mapRow(ResultSet rs) {
         try {
             UserDTO user = new UserDTO();
-            
             user.setUsername(rs.getString("username"));
-            user.setPassword(rs.getString("password"));
             user.setFullName(rs.getString("fullname"));
-            user.setStatus(rs.getBoolean("status"));
             try {
+                
+                //role
                 RoleDTO role = new RoleDTO();
+                role.setId(rs.getLong("roleid"));
                 role.setName(rs.getString("name"));
                 user.setRole(role);
+                
+                user.setId(rs.getLong("id"));
+                user.setEmail(rs.getString("email"));
+                user.setPhone(rs.getString("phone"));
+                user.setPhoto(rs.getString("photo"));
+                user.setStatus(rs.getBoolean("status"));
+                user.setPassword(rs.getString("password"));
+
             } catch (Exception e) {
-                System.out.print(e.getMessage());
-            }            
+//                logger.error("UserMapper_Exception " + e.getMessage());
+//                e.printStackTrace();
+            }
             return user;
         } catch (SQLException e) {
+            logger.error("UserMapper_Exception " + e.getMessage());
+
             return null;
         }
     }
-    
+
 }
