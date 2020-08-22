@@ -22,13 +22,13 @@ public interface IUserDAO {
     
         List<UserDTO> findAllByFullNameAndStatus(String textSearch, boolean status);
 
-        void delete(Long id, boolean status);
+        boolean delete(Long id, boolean status);
         
         UserDTO findUserByIdAndStatus(Long id, boolean status);
     
     Long save(UserDTO userDTO);
     
-    void update(UserDTO userDTO);
+    boolean update(UserDTO userDTO);
 
     public boolean existUserByUserName(String username);
     

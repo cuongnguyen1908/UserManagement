@@ -5,6 +5,7 @@
  */
 package mapper;
 
+import dtos.RankDTO;
 import dtos.RoleDTO;
 import dtos.UserDTO;
 import java.sql.ResultSet;
@@ -30,23 +31,31 @@ public class UserMapper implements RowMapper<UserDTO> {
                 //role
                 RoleDTO role = new RoleDTO();
                 role.setId(rs.getLong("roleid"));
-                role.setName(rs.getString("name"));
+                role.setName(rs.getString("roname"));
                 user.setRole(role);
                 
+
+                user.setRankId(rs.getLong("rankid"));
                 user.setId(rs.getLong("id"));
                 user.setEmail(rs.getString("email"));
                 user.setPhone(rs.getString("phone"));
                 user.setPhoto(rs.getString("photo"));
                 user.setStatus(rs.getBoolean("status"));
                 user.setPassword(rs.getString("password"));
+                                //rank
+                RankDTO rank = new RankDTO();
+                rank.setId(rs.getLong("rankid"));
+                rank.setName(rs.getString("raname"));
+                user.setRank(rank);
 
             } catch (Exception e) {
-//                logger.error("UserMapper_Exception " + e.getMessage());
+                logger.error("UserMapper_Exception " + e.getMessage());
 //                e.printStackTrace();
             }
             return user;
         } catch (SQLException e) {
             logger.error("UserMapper_Exception " + e.getMessage());
+                e.printStackTrace();
 
             return null;
         }

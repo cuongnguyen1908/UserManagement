@@ -1,10 +1,5 @@
-<%-- 
-    Document   : home
-    Created on : Aug 17, 2020, 7:41:32 PM
-    Author     : nguyen
---%>
 
-<%@include file="/common/taglib.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,39 +8,22 @@
         <title>Home</title>
     </head>
     <body>
-        
-        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-        
-        
-        
+
+        <c:if test="${empty USERDETAIL}">
+            <h3>Hello ${USERMODEL.fullName}</h3>
+        </c:if>
+
+        <c:if test="${not empty USERDETAIL}">
+            <img src="/images/${USERDETAIL.photo}" style="height: 100px; width: 100px;">
+            <h3>Fullname: ${USERDETAIL.fullName}</h3>
+            <h3>Email: ${USERDETAIL.email}</h3>
+            <h3>Phone: ${USERDETAIL.phone}</h3>
+            
+        </c:if>
+
+
+
+
+
     </body>
 </html>

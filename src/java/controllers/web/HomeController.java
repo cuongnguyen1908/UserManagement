@@ -7,6 +7,8 @@ package controllers.web;
 
 import dtos.UserDTO;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Optional;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,40 +17,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import services.IUserService;
-import utils.HashFunctions;
 import utils.SessionUtil;
 
 /**
+ * home
  *
  * @author nguyen
  */
-@WebServlet(urlPatterns = {"/home", "/login", "/logout"})
+@WebServlet(urlPatterns = {"/home"})
 public class HomeController extends HttpServlet {
 
-   @Inject
-   private IUserService userService;
-    
+    @Inject
+    private IUserService userService;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if (action != null && action.equals("login")) {
-            String alert = request.getParameter("alert");
-            String message = request.getParameter("message");
-            if (message != null && alert != null) {
-		request.setAttribute("message", message);
-		request.setAttribute("alert", alert);
-            }
-            RequestDispatcher rd = request.getRequestDispatcher("/views/login.jsp");
-            rd.forward(request, response);
-        } else if (action != null && action.equals("logout")) {
-            SessionUtil.getInstance().removeValue(request, "USERMODEL");
-            			response.sendRedirect(request.getContextPath()+"/home");
+        response.setContentType("text/html;charset=UTF-8");
+        Optional<UserDTO> test = Optional.ofNullable((UserDTO) SessionUtil.getInstance().getValue(request, "USERMODEL"));
+        if (test.isPresent() && (test.get().getRole().getId() == Long.valueOf(2 + ""))) {
 
-        } else {
-            RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
-            rd.forward(request, response);
+            UserDTO userDetail = this.userService.findUserByIdAndStatus(test.get().getId(), true);
+            request.setAttribute("USERDETAIL", userDetail);
         }
-        
+
+        RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -78,29 +71,6 @@ public class HomeController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        String action = request.getParameter("action");
-        if (action != null && action.equals("login")) {
-            UserDTO model = new UserDTO();
-            model.setUsername(request.getParameter("username"));
-            String password = request.getParameter("password");
-            String passHash = HashFunctions.getHash(password.trim().getBytes(), "SHA-256");
-            model.setPassword(passHash);
-            model = userService.findByUserNameAndPasswordAndStatus(model.getUsername(), model.getPassword(), true);
-
-            if (model != null ) {
-                SessionUtil.getInstance().putValue(request, "USERMODEL", model);
-                if (model.getRole().getName().equals("user")) {
-                    response.sendRedirect(request.getContextPath()+ "home");
-                }else if (model.getRole().getName().equals("admin")) {
-                                        response.sendRedirect(request.getContextPath()+ "admin-home");
-
-                }
-            }else {
-                response.sendRedirect(request.getContextPath()+"/login?action=login&message=usernamepasswordinvalid&alert=danger");
-            }
-            
-        }
-        
     }
 
     /**

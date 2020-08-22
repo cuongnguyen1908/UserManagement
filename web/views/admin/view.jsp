@@ -9,6 +9,8 @@
     <body>
         <a href='<c:url value="/admin-edit"/>' class="btn btn-sm btn-success text-right mb-3">New</a>
 
+
+
         <form class="form-inline ml-auto" action='<c:url value="/admin-search"/>'>
             <select class="form-control mr-2" name="typeRoleId">
                 <option value="0" selected>All</option>
@@ -22,6 +24,17 @@
             </div>
             <button type="submit" class="btn btn-success ml-2">Search</button>
         </form>
+
+        <!--alert-->
+        <c:if test="${not empty ACTION_MESSAGE}">
+            <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                <strong>${ACTION_MESSAGE}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </c:if>
+
 
 
         <table class="table table-hover mt-5">
@@ -60,20 +73,17 @@
                             <img src="/images/${item.photo}" style="height: 100px; width: 100px;">
                         </td>
                         <td>
-                            <c:url var="deleteURL" value="/admin-delete">
-                                <c:param name="id" value="${item.id}"/>
-                            </c:url>
-                            <c:if test="${USERMODEL.username == item.username}">
-
-                            </c:if>
-
                             <c:if test="${USERMODEL.username != item.username}">
+                                <c:url var="deleteURL" value="/admin-delete">
+                                    <c:param name="id" value="${item.id}"/>
+                                </c:url>
+
                                 <a class="btn btn-sm btn-danger"
-                                   href='${deleteURL}' data-toggle="modal" data-target="#deleteModel">Delete
+                                   href='${deleteURL}' data-toggle="modal" data-target="#deleteModel-${item.id}">Delete
                                 </a>
 
                                 <!-- Modal Logout -->
-                                <div class="modal fade" id="deleteModel" tabindex="-1" role="dialog" aria-labelledby="modelDelete" aria-hidden="true">
+                                <div class="modal fade" id="deleteModel-${item.id}" tabindex="-1" role="dialog" aria-labelledby="modelDelete" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -83,7 +93,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <p>Are you sure to delete ${item.fullName}?</p>
+                                                <p>Are you sure to delete ${item.fullName} ?</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
@@ -102,6 +112,12 @@
                             <a class="btn btn-sm btn-primary"
                                href='${editURL}'>Update
                             </a>
+
+                            <c:if test="${empty item.rankId}">
+                                <a class="btn btn-sm btn-warning"
+                                   href='${editURL}'>Add
+                                </a>
+                            </c:if>
 
                         </td>
                     </tr>

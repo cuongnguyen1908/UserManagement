@@ -26,7 +26,7 @@ public class DeleteController extends HttpServlet {
 
     @Inject
     private IUserService userService;
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -43,11 +43,14 @@ public class DeleteController extends HttpServlet {
         UserDTO user = (UserDTO) SessionUtil.getInstance().getValue(request, "USERMODEL");
 
         if (!(user.getId() == Long.valueOf(id))) {
-            userService.delete(Long.valueOf(id), false);
+            if (userService.delete(Long.valueOf(id), false)) {
+                request.setAttribute("ACTION_MESSAGE", "Delete success!");
+            };
+
         }
         RequestDispatcher rd = request.getRequestDispatcher("/admin-view");
-                rd.forward(request, response);
-        
+        rd.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

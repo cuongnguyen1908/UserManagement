@@ -43,8 +43,8 @@ public class UserService implements IUserService{
     }
 
     @Override
-    public void delete(Long id, boolean status) {
-        userDAO.delete(id, status);
+    public boolean delete(Long id, boolean status) {
+        return userDAO.delete(id, status);
     }
 
     @Override
@@ -58,8 +58,8 @@ public class UserService implements IUserService{
     }
 
     @Override
-    public void update(UserDTO userDTO) {
-        userDAO.update(userDTO);
+    public boolean update(UserDTO userDTO) {
+        return userDAO.update(userDTO);
     }
 
     @Override

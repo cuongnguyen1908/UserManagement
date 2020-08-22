@@ -12,8 +12,6 @@
         <title>Login</title>
     </head>
     <body>
-        <div class="alert"></div>
-
         <form class="form" 
               action="<c:url value='/login'/>"
               method="POST" 

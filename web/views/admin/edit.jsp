@@ -63,7 +63,7 @@
                 </div>
                 <!--role-->
 
-                <label for="role">Role:</label>
+                <label for="role">Role: user id:${USER.id}  modeluser: ${USERMODEL.id}</label>
                 <select class="form-control mr-2" name="typeRoleId" id="role"
                 <c:if test="${USERMODEL.id == USER.id}">disabled</c:if>
                     >
@@ -88,6 +88,7 @@
 
             <label for="status">Status:</label>
             <select class="form-control mr-2" name="status" id="status" 
+                    <c:if test="${empty USER.id}">disabled</c:if>
                     <c:if test="${USERMODEL.id == USER.id}">disabled</c:if>
                         >
                     <c:if test="${empty USER.id}">

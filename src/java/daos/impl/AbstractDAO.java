@@ -69,7 +69,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
     }
 
     @Override
-    public void update(String sql, Object... parameters) {
+    public boolean update(String sql, Object... parameters) {
         Connection connection = null;
         PreparedStatement preStm = null;
         try {
@@ -77,10 +77,13 @@ public class AbstractDAO<T> implements GenericDAO<T> {
             connection.setAutoCommit(false);
             preStm = connection.prepareStatement(sql);
             setParameter(preStm, parameters);
-            preStm.executeUpdate();
-            connection.commit();
+            if (preStm.executeUpdate() > 0) {
+                connection.commit();
+                return true;
+            }
+
         } catch (SQLException | NamingException e) {
-                                logger.error("AbstractDAO_SQLException " + e.getMessage());
+            logger.error("AbstractDAO_SQLException " + e.getMessage());
             e.printStackTrace();
             if (connection != null) {
                 try {
@@ -102,6 +105,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
                 e2.printStackTrace();
             }
         }
+        return false;
     }
 
     @Override

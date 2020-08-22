@@ -94,11 +94,9 @@ public class ProcessEditController extends HttpServlet {
             error.setPhoneLengthError("Phone length must be > 8 digit");
         }
         String role = request.getParameter("typeRoleId");
-//            String photo = (String) params.get("photo");
         String status = request.getParameter("status");
-
         if (foundError) {
-            //exist error
+            //exist errorstatus
             if (id.get().length() > 0) {
                 UserDTO user = new UserDTO();
                 user = userService.findUserByIdAndStatus(Long.valueOf(id.get()), true);
@@ -111,10 +109,10 @@ public class ProcessEditController extends HttpServlet {
             request.setAttribute("ERROR", error);
 
         } else {
+            //update
             url = SUCCESS;
 
             if (id.get().length() > 0) {
-                //update
                 UserDTO user = new UserDTO();
 
                 UserDTO userAdmin = (UserDTO) SessionUtil.getInstance().getValue(request, "USERMODEL");
@@ -138,10 +136,14 @@ public class ProcessEditController extends HttpServlet {
                 user.setEmail(email);
                 user.setPhone(phone);
                 user.setPhoto(fileName);
-                this.userService.update(user);
+                if (this.userService.update(user)) {
+                    request.setAttribute("ACTION_MESSAGE", "Update success!");
+                } else {
+                    request.setAttribute("ACTION_MESSAGE", "Update fail!");
+                }
+
             } else {
                 //create
-
                 String username = request.getParameter("username");
                 boolean checkUserExist = this.userService.existUserByUsername(username);
 
@@ -172,10 +174,17 @@ public class ProcessEditController extends HttpServlet {
                 user.setEmail(email);
                 user.setRoleId(Long.valueOf(role));
                 user.setPhone(phone);
-                user.setStatus(status.equals("1") ? true : false);
+                if (status != null) {
+                    user.setStatus(status.equals("1") ? true : false);
+
+                } else {
+                    user.setStatus(false);
+                }
+//                user.setStatus(status.equals("1") ? true : false);
                 user.setPhoto(fileName);
                 if (!this.userService.existUserByUsername(username)) {
                     Long idNew = this.userService.save(user);
+                    request.setAttribute("ACTION_MESSAGE", "Create success!");
                 }
             }
 

@@ -20,6 +20,8 @@ public class UserDTO extends AbstractDTO<UserDTO>{
     private String email;
     private String phone;
     private String photo;
+    private Long rankId;
+    private RankDTO rank = new RankDTO();
 
     public String getEmail() {
         return email;
@@ -44,11 +46,14 @@ public class UserDTO extends AbstractDTO<UserDTO>{
     public void setPhoto(String photo) {
         this.photo = photo;
     }
-    
-    
 
-    
-    
+    public Long getRankId() {
+        return rankId;
+    }
+
+    public void setRankId(Long rankId) {
+        this.rankId = rankId;
+    }
     
     
     public String getUsername() {
@@ -98,6 +103,15 @@ public class UserDTO extends AbstractDTO<UserDTO>{
     public void setRole(RoleDTO role) {
         this.role = role;
     }
+
+    public RankDTO getRank() {
+        return rank;
+    }
+
+    public void setRank(RankDTO rank) {
+        this.rank = rank;
+    }
+    
     
     
     
