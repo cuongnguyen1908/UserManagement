@@ -31,5 +31,12 @@ public interface IUserService {
     
     boolean existUserByUsername(String username);
     
+    boolean updateRankById(Long id, Long rankId);
+    
+    List<UserDTO> findAllUserPromotion(boolean status);
+    
+    boolean deleleRankById(Long id, Long rankId);
+    
+    
     
 }

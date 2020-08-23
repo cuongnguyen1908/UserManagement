@@ -66,6 +66,22 @@ public class UserService implements IUserService{
     public boolean existUserByUsername(String username) {
         return userDAO.existUserByUserName(username);
     }
+
+    @Override
+    public boolean updateRankById(Long id, Long rankId) {
+        return userDAO.updateRankById(id, rankId);
+    }
+
+    @Override
+    public List<UserDTO> findAllUserPromotion(boolean status) {
+        return userDAO.findAllUserPromotion(status);
+
+    }
+
+    @Override
+    public boolean deleleRankById(Long id, Long rankId) {
+        return userDAO.deleleRankById(id, rankId);
+    }
     
     
 }

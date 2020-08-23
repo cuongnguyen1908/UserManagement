@@ -24,39 +24,86 @@ public class UserMapper implements RowMapper<UserDTO> {
     public UserDTO mapRow(ResultSet rs) {
         try {
             UserDTO user = new UserDTO();
-            user.setUsername(rs.getString("username"));
+
             user.setFullName(rs.getString("fullname"));
+
             try {
-                
+                user.setUsername(rs.getString("username"));
+
+            } catch (NullPointerException | SQLException e) {
+
+            }
+
+            try {
+                user.setPassword(rs.getString("password"));
+
+            } catch (NullPointerException | SQLException e) {
+
+            }
+            try {
+                user.setEmail(rs.getString("email"));
+
+            } catch (NullPointerException | SQLException e) {
+
+            }
+
+            try {
+                user.setPhone(rs.getString("phone"));
+
+            } catch (NullPointerException | SQLException e) {
+
+            }
+
+            try {
+                user.setPhoto(rs.getString("photo"));
+            } catch (NullPointerException | SQLException e) {
+
+            }
+
+            try {
+                user.setStatus(rs.getBoolean("status"));
+            } catch (NullPointerException | SQLException e) {
+
+            }
+
+            try {
+                user.setId(rs.getLong("id"));
+            } catch (NullPointerException | SQLException e) {
+
+            }
+
+            try {
                 //role
                 RoleDTO role = new RoleDTO();
                 role.setId(rs.getLong("roleid"));
                 role.setName(rs.getString("roname"));
                 user.setRole(role);
-                
+            } catch (NullPointerException | SQLException e) {
 
-                user.setRankId(rs.getLong("rankid"));
-                user.setId(rs.getLong("id"));
-                user.setEmail(rs.getString("email"));
-                user.setPhone(rs.getString("phone"));
-                user.setPhoto(rs.getString("photo"));
-                user.setStatus(rs.getBoolean("status"));
-                user.setPassword(rs.getString("password"));
-                                //rank
-                RankDTO rank = new RankDTO();
+            }
+            
+            RankDTO rank = new RankDTO();
+            
+            try {
+                //rank
                 rank.setId(rs.getLong("rankid"));
+                user.setRank(rank);
+                user.setRankId(rs.getLong("rankid"));
+
+            } catch (NullPointerException | SQLException e) {
+            }
+            
+            try {
                 rank.setName(rs.getString("raname"));
                 user.setRank(rank);
+                user.setRankId(rs.getLong("rankid"));
 
-            } catch (Exception e) {
-                logger.error("UserMapper_Exception " + e.getMessage());
-//                e.printStackTrace();
+            } catch (NullPointerException | SQLException e) {
             }
             return user;
         } catch (SQLException e) {
             logger.error("UserMapper_Exception " + e.getMessage());
-                e.printStackTrace();
-
+            e.printStackTrace();
             return null;
         }
     }

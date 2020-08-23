@@ -4,42 +4,67 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/common/web/header.jsp</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/services/impl/UserService.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/login.jsp</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/impl/RankDAO.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/admin/edit.jsp</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/web/HomeController.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/dtos/RankDTO.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/mapper/RankMapper.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/dtos/RoleDTO.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/IUserDAO.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/WEB-INF/web.xml</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/IHistoryDAO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/admin/viewPromotion.jsp</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/AddToCartController.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/services/impl/RankService.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/GenericDAO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/dtos/UserDTO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/services/impl/HistoryService.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/impl/RoleDAO.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/common/admin/topbar.jsp</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/DeleteController.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/DeleteItemCartController.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/UpdateRankController.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/cart/CartObject.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/dtos/AbstractDTO.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/web/home.jsp</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/web/AuthenticationController.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/IRoleDAO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/mapper/HistoryMapper.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/404.jsp</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/resource/log4j.properties</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/dtos/EditErrorDTO.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/admin/home.jsp</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/impl/UserDAO.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/common/admin/sidebar.jsp</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/admin/editError.jsp</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/mapper/UserMapper.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/admin/view.jsp</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/ViewController.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/filter/AuthorizationFilter.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/ViewPromotionController.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/impl/AbstractDAO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/dtos/FlagDTO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/services/impl/UserService.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/ViewCartController.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/login.jsp</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/services/IHistoryService.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/services/IRankService.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/web/HomeController.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/dtos/RankDTO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/mapper/RankMapper.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/services/IRoleService.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/dtos/RoleDTO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/IUserDAO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/WEB-INF/web.xml</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/SearchPromotionController.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/services/impl/RoleService.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/common/admin/topbar.jsp</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/mapper/FlagMapper.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/DeleteController.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/web/home.jsp</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/web/AuthenticationController.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/dtos/HistoryDTO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/SaveCartController.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/IRankDAO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/dtos/EditErrorDTO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/admin/viewCart.jsp</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/HomeController.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/mapper/RowMapper.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/services/IUserService.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/SearchController.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/mapper/UserMapper.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/web/views/admin/view.jsp</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/utils/SessionUtil.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/ViewController.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/filter/AuthorizationFilter.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/EditController.java</file>
-            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/impl/AbstractDAO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/daos/impl/HistoryDAO.java</file>
+            <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/DeletePromotionController.java</file>
             <file>file:/Users/nguyen/Documents/CN5/Lab231-HoaDN/TemplateStart/src/java/controllers/admin/ProcessEditController.java</file>
         </group>
     </open-files>

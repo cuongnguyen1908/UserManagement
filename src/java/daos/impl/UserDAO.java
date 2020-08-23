@@ -98,4 +98,29 @@ public class UserDAO extends AbstractDAO<UserDTO> implements IUserDAO {
         return flag.get(0).isFlag() == true ? true : false;
     }
 
+    @Override
+    public boolean updateRankById(Long id, Long rankId) {
+        String sql = "UPDATE [user] SET rankid = ? WHERE id = ?";
+        return update(sql, rankId, id);
+    }
+
+    @Override
+    public List<UserDTO> findAllUserPromotion(boolean status) {
+        String sql = "SELECT u.id, u.username, u.fullname, u.email, u.phone, u.photo, u.roleid, u.rankid, r.name as roname, ra.name as raname "
+                + "FROM [user] as u "
+                + "INNER JOIN role as r on u.roleid = r.id "
+                + "INNER JOIN [rank] as ra on u.rankid = ra.id "
+                + "WHERE u.[status] = ?";
+        List<UserDTO> user = query(sql, new UserMapper(), status);
+        return user;
+    }
+
+    @Override
+    public boolean deleleRankById(Long id, Long rankId) {
+       String sql = "UPDATE [user] set rankid = ? WHERE id = ?";
+       return update(sql, rankId, id);
+    }
+    
+    
+
 }

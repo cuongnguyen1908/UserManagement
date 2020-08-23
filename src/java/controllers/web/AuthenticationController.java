@@ -88,6 +88,7 @@ public class AuthenticationController extends HttpServlet {
             model = userService.findByUserNameAndPasswordAndStatus(model.getUsername(), model.getPassword(), true);
 
             if (model != null) {
+                System.out.println("id model: " + model.getId());
                 SessionUtil.getInstance().putValue(request, "USERMODEL", model);
                 if (model.getRole().getName().equals("user")) {
                     response.sendRedirect(request.getContextPath() + "home");

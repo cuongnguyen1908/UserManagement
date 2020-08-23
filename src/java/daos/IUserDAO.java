@@ -32,6 +32,12 @@ public interface IUserDAO {
 
     public boolean existUserByUserName(String username);
     
+    boolean updateRankById(Long id, Long rankId);
     
+        List<UserDTO> findAllUserPromotion(boolean status);
+
+        
+            boolean deleleRankById(Long id, Long rankId);
+
 
 }

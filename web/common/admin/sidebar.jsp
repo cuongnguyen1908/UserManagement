@@ -30,6 +30,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Category</h6>
                         <a class="collapse-item" href='<c:url value="/admin-view"/>'>View</a>
+                        <a class="collapse-item" href='<c:url value="/admin-view-promotion"/>'>Promotion</a>
                     </div>
                 </div>
             </li>

@@ -5,9 +5,10 @@
  */
 package controllers.web;
 
+import dtos.HistoryDTO;
+import dtos.RankDTO;
 import dtos.UserDTO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Optional;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -16,6 +17,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import services.IHistoryService;
+import services.IRankService;
 import services.IUserService;
 import utils.SessionUtil;
 
@@ -30,13 +33,24 @@ public class HomeController extends HttpServlet {
     @Inject
     private IUserService userService;
 
+    @Inject
+    private IHistoryService historyService;
+    
+    @Inject
+    private IRankService rankService;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         Optional<UserDTO> test = Optional.ofNullable((UserDTO) SessionUtil.getInstance().getValue(request, "USERMODEL"));
         if (test.isPresent() && (test.get().getRole().getId() == Long.valueOf(2 + ""))) {
-
             UserDTO userDetail = this.userService.findUserByIdAndStatus(test.get().getId(), true);
+            HistoryDTO history = new HistoryDTO();
+            history.setListResult(this.historyService.findHistoryByUserId(test.get().getId()));
+            System.out.println("history: " + history.getListResult().get(0).getDate());
+            RankDTO rank = this.rankService.findRankById(userDetail.getRankId());
+            request.setAttribute("RANK", rank);
+            request.setAttribute("HISTORY", history);
             request.setAttribute("USERDETAIL", userDetail);
         }
 

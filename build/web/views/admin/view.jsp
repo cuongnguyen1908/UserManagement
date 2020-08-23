@@ -25,10 +25,13 @@
             <button type="submit" class="btn btn-success ml-2">Search</button>
         </form>
 
+        <a class="btn btn-sm btn-warning mt-3"
+           href='<c:url value="/admin-view-cart"/>'>View cart
+        </a>
         <!--alert-->
-        <c:if test="${not empty ACTION_MESSAGE}">
-            <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-                <strong>${ACTION_MESSAGE}</strong>
+        <c:if test="${not empty MESSAGE}">
+            <div class="alert alert-${TYPE} alert-dismissible fade show mt-3" role="alert">
+                <strong>${MESSAGE}</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -80,9 +83,9 @@
 
                                 <a class="btn btn-sm btn-danger"
                                    href='${deleteURL}' data-toggle="modal" data-target="#deleteModel-${item.id}">Delete
-                                </a>
+                                </a>  
 
-                                <!-- Modal Logout -->
+                                <!-- Modal  -->
                                 <div class="modal fade" id="deleteModel-${item.id}" tabindex="-1" role="dialog" aria-labelledby="modelDelete" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -105,15 +108,22 @@
 
                             </c:if>
 
+                            <!--for create/update-->
                             <c:url var="editURL" value="/admin-edit">
                                 <c:param name="id" value="${item.id}"/>
                             </c:url>
-
                             <a class="btn btn-sm btn-primary"
                                href='${editURL}'>Update
                             </a>
 
-                            <c:if test="${empty item.rankId}">
+
+                            <!--for add to cart-->
+                            <c:url var="editURL" value="/admin-cart-add">
+                                <c:param name="id" value="${item.id}"/>
+                                <c:param name="fullName" value="${item.fullName}"/>
+                            </c:url>
+                            
+                            <c:if test="${item.rankId == 0}">
                                 <a class="btn btn-sm btn-warning"
                                    href='${editURL}'>Add
                                 </a>

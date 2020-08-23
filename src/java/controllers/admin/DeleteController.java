@@ -44,7 +44,8 @@ public class DeleteController extends HttpServlet {
 
         if (!(user.getId() == Long.valueOf(id))) {
             if (userService.delete(Long.valueOf(id), false)) {
-                request.setAttribute("ACTION_MESSAGE", "Delete success!");
+                request.setAttribute("TYPE", "success");
+                request.setAttribute("MESSAGE", "Delete success!");
             };
 
         }

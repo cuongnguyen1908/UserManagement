@@ -38,12 +38,9 @@ public class ViewController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         UserDTO user = new UserDTO();
         user.setListResult(userService.findAll(true));
+        System.out.println("email: " + user.getListResult().get(0).getEmail());
         RoleDTO role = new RoleDTO();
         role.setListResult(roleService.findAll());
-        Path currentRelativePath = Paths.get("");
-        String sPath = currentRelativePath.toAbsolutePath().toString();
-        String realPath = sPath + "/images";
-        request.setAttribute("PREFIXPATH", realPath);
         request.setAttribute("USERLIST", user);
         request.setAttribute("ROLELIST", role);
         RequestDispatcher rd = request.getRequestDispatcher("/views/admin/view.jsp");

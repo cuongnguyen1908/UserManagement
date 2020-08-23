@@ -208,10 +208,9 @@ public class AbstractDAO<T> implements GenericDAO<T> {
                     preStm.setTimestamp(index, (Timestamp) parameter);
                 } else if (parameter instanceof Boolean) {
                     preStm.setBoolean(index, (Boolean) parameter);
+                }else if (parameter == null) {
+                    preStm.setNull(index, java.sql.Types.INTEGER);
                 }
-//                else if (parameter == null) {
-//                    preStm.setNull(index, Types.NULL);
-//                }
 
             }
         } catch (SQLException e) {

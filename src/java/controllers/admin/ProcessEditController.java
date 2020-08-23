@@ -55,7 +55,7 @@ public class ProcessEditController extends HttpServlet {
         EditErrorDTO error = new EditErrorDTO();
         Optional<String> id = Optional.ofNullable(request.getParameter("id"));
         String fileName = request.getParameter("file");
-        if (fileName.trim().length() < 1) {
+        if (fileName == null) {
             foundError = true;
             error.setFileEmpty("Please select file");
         }
@@ -73,7 +73,7 @@ public class ProcessEditController extends HttpServlet {
             }
         }
         String fullName = request.getParameter("fullName");
-        if (fullName.trim().length() < 8) {
+        if (!(fullName.trim().length() > 0)) {
             foundError = true;
             error.setFullNameLengthError("Fullname length must be > 8 characters");
         }
@@ -109,10 +109,10 @@ public class ProcessEditController extends HttpServlet {
             request.setAttribute("ERROR", error);
 
         } else {
-            //update
             url = SUCCESS;
 
             if (id.get().length() > 0) {
+                //update
                 UserDTO user = new UserDTO();
 
                 UserDTO userAdmin = (UserDTO) SessionUtil.getInstance().getValue(request, "USERMODEL");
@@ -137,9 +137,11 @@ public class ProcessEditController extends HttpServlet {
                 user.setPhone(phone);
                 user.setPhoto(fileName);
                 if (this.userService.update(user)) {
-                    request.setAttribute("ACTION_MESSAGE", "Update success!");
+                    request.setAttribute("TYPE", "success");
+                    request.setAttribute("MESSAGE", "Update success!");
                 } else {
-                    request.setAttribute("ACTION_MESSAGE", "Update fail!");
+                    request.setAttribute("TYPE", "danger");
+                    request.setAttribute("MESSAGE", "Update fail!");
                 }
 
             } else {
@@ -174,17 +176,12 @@ public class ProcessEditController extends HttpServlet {
                 user.setEmail(email);
                 user.setRoleId(Long.valueOf(role));
                 user.setPhone(phone);
-                if (status != null) {
-                    user.setStatus(status.equals("1") ? true : false);
-
-                } else {
-                    user.setStatus(false);
-                }
-//                user.setStatus(status.equals("1") ? true : false);
+                user.setStatus(true);
                 user.setPhoto(fileName);
                 if (!this.userService.existUserByUsername(username)) {
                     Long idNew = this.userService.save(user);
-                    request.setAttribute("ACTION_MESSAGE", "Create success!");
+                    request.setAttribute("TYPE", "success");
+                    request.setAttribute("MESSAGE", "Create success!");
                 }
             }
 
