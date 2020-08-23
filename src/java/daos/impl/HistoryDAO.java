@@ -7,7 +7,6 @@ package daos.impl;
 
 import daos.IHistoryDAO;
 import dtos.HistoryDTO;
-import java.sql.Timestamp;
 import java.util.List;
 import mapper.HistoryMapper;
 

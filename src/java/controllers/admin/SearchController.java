@@ -8,7 +8,6 @@ package controllers.admin;
 import dtos.RoleDTO;
 import dtos.UserDTO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,7 +39,6 @@ public class SearchController extends HttpServlet {
         request.setAttribute("ROLELIST", role);
 
         String textSearch = request.getParameter("textSearch");
-        System.out.println("TextSearch: " + textSearch);
         String roleId = request.getParameter("typeRoleId");
         UserDTO user = new UserDTO();
 

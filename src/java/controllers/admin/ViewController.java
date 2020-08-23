@@ -8,8 +8,6 @@ package controllers.admin;
 import dtos.RoleDTO;
 import dtos.UserDTO;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -38,7 +36,6 @@ public class ViewController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         UserDTO user = new UserDTO();
         user.setListResult(userService.findAll(true));
-        System.out.println("email: " + user.getListResult().get(0).getEmail());
         RoleDTO role = new RoleDTO();
         role.setListResult(roleService.findAll());
         request.setAttribute("USERLIST", user);

@@ -6,7 +6,6 @@
 package services;
 
 import dtos.HistoryDTO;
-import java.sql.Timestamp;
 import java.util.List;
 
 /**

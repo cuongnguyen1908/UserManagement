@@ -7,7 +7,6 @@ package daos;
 
 import dtos.UserDTO;
 import java.util.List;
-import java.util.Optional;
 
 /**
  *

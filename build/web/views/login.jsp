@@ -15,14 +15,12 @@
         <form class="form" 
               action="<c:url value='/login'/>"
               method="POST" 
-              style="min-height: 300px;">
-
-
+              style="min-height: 330px;">
 
             <div class="card-header card-header-primary text-center">
                 <h4 class="card-title text-uppercase">Login</h4>
             </div>
-            <div class="card-body">
+            <div class="card-body px-1">
 
                 <c:if test="${not empty message}">
                     <div class="alert alert-${alert}">
@@ -39,7 +37,7 @@
                            class="form-control" 
                            name="username" 
                            placeholder="User Name..." 
-                           value="admin123"
+                           value="${param.username}"
                            />
                 </div>
                 <div class="input-group">
@@ -52,7 +50,7 @@
                            class="form-control" 
                            name="password" 
                            placeholder="Password..." 
-                           value="123456789"
+                           value=""
 
                            />
                 </div>

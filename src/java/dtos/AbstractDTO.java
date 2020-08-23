@@ -5,6 +5,7 @@
  */
 package dtos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  *
  * @author nguyen
  */
-public class AbstractDTO<T> {
+public class AbstractDTO<T> implements Serializable {
 
     private Long id;
     private List<T> listResult = new ArrayList<>();

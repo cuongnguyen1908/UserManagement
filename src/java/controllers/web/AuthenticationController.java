@@ -42,6 +42,7 @@ public class AuthenticationController extends HttpServlet {
             rd.forward(request, response);
         } else if (action != null && action.equals("logout")) {
             SessionUtil.getInstance().removeValue(request, "USERMODEL");
+            SessionUtil.getInstance().removeValue(request, "CART");
             response.sendRedirect(request.getContextPath() + "/home");
 
         } else {
@@ -81,23 +82,22 @@ public class AuthenticationController extends HttpServlet {
         String action = request.getParameter("action");
         if (action != null && action.equals("login")) {
             UserDTO model = new UserDTO();
-            model.setUsername(request.getParameter("username"));
+            String username = request.getParameter("username");
+            model.setUsername(username);
             String password = request.getParameter("password");
             String passHash = HashFunctions.getHash(password.trim().getBytes(), "SHA-256");
             model.setPassword(passHash);
             model = userService.findByUserNameAndPasswordAndStatus(model.getUsername(), model.getPassword(), true);
 
             if (model != null) {
-                System.out.println("id model: " + model.getId());
                 SessionUtil.getInstance().putValue(request, "USERMODEL", model);
                 if (model.getRole().getName().equals("user")) {
                     response.sendRedirect(request.getContextPath() + "home");
                 } else if (model.getRole().getName().equals("admin")) {
                     response.sendRedirect(request.getContextPath() + "admin-home");
-
                 }
             } else {
-                response.sendRedirect(request.getContextPath() + "/login?action=login&message=usernamepasswordinvalid&alert=danger");
+                response.sendRedirect(request.getContextPath() + "/login?action=login&message=usernamepasswordinvalid&alert=danger&username=" + username);
             }
 
         }

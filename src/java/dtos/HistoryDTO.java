@@ -5,13 +5,14 @@
  */
 package dtos;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
  *
  * @author nguyen
  */
-public class HistoryDTO extends AbstractDTO<HistoryDTO>{
+public class HistoryDTO extends AbstractDTO<HistoryDTO> implements Serializable{
     private Long roleId;
     private Timestamp date;
     private String action;

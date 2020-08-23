@@ -7,7 +7,6 @@ package mapper;
 
 import dtos.FlagDTO;
 import java.sql.ResultSet;
-import static mapper.RoleMapper.logger;
 import org.apache.log4j.Logger;
 
 /**
@@ -26,7 +25,6 @@ public class FlagMapper implements RowMapper<FlagDTO> {
             flag.setFlag(rs.getBoolean("flag"));
         } catch (Exception e) {
             logger.error("RoleMapper_Exception " + e.getMessage());
-            e.printStackTrace();
         }
         return flag;
     }

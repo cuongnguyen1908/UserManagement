@@ -6,7 +6,6 @@
 package controllers.admin;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Timestamp;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -36,8 +35,6 @@ public class DeletePromotionController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String id = request.getParameter("id");
         String rankId = request.getParameter("rankId");
-        System.out.println("id in delete: " + id);
-        System.out.println("rankid in delete: " + rankId);
         boolean check = this.userService.deleleRankById(Long.valueOf(id), null);
         Timestamp date = new Timestamp(System.currentTimeMillis());
         Long checkHistory = this.historyService.saveHistory(Long.valueOf(id), date.toString(), "Unassign");

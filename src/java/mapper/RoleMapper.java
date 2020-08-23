@@ -26,7 +26,6 @@ public class RoleMapper implements RowMapper<RoleDTO>{
             return role;
         } catch (Exception e) {
             logger.error("RoleMapper_Exception " + e.getMessage());
-            e.printStackTrace();
             return null;
         }
     }

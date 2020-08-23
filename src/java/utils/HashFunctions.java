@@ -7,12 +7,14 @@ package utils;
 
 import java.security.MessageDigest;
 import javax.xml.bind.DatatypeConverter;
+import org.apache.log4j.Logger;
 
 /**
  *
  * @author nguyen
  */
 public class HashFunctions {
+    static Logger logger = Logger.getLogger(Logger.class.getName());
      public static String getHash(byte[] inputBytes, String algorithm){
         String hashValue = "";
         try {
@@ -22,7 +24,7 @@ public class HashFunctions {
             hashValue = DatatypeConverter.printHexBinary(digestedBytes).toLowerCase();
             
         } catch (Exception e) {
-            e.printStackTrace();
+               logger.error("HashFunction_Exception " + e.getMessage());
         }
         
         

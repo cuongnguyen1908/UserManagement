@@ -5,11 +5,13 @@
  */
 package dtos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author nguyen
  */
-public class RankDTO extends AbstractDTO<RankDTO>{
+public class RankDTO extends AbstractDTO<RankDTO> implements Serializable{
     private String name;
 
     public String getName() {

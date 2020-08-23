@@ -8,7 +8,6 @@ package controllers.admin;
 import dtos.RankDTO;
 import dtos.UserDTO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

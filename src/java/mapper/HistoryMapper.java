@@ -6,7 +6,6 @@
 package mapper;
 
 import dtos.HistoryDTO;
-import dtos.RankDTO;
 import java.sql.ResultSet;
 import org.apache.log4j.Logger;
 
@@ -26,7 +25,6 @@ public class HistoryMapper implements RowMapper<HistoryDTO>{
             return history;
         } catch (Exception e) {
             logger.error("HistoryMapper_Exception " + e.getMessage());
-            e.printStackTrace();
             return null;
         }
     }

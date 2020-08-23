@@ -15,10 +15,9 @@
             <select class="form-control mr-2" name="typeRoleId">
                 <option value="0" selected>All</option>
                 <c:forEach var="item" items="${ROLELIST.listResult}">
-                    <option value="${item.id}">${item.name}</option>
+                    <option value="${item.id}" <c:if test="${param.typeRoleId == item.id}">selected="selected"</c:if>>${item.name}</option>
                 </c:forEach>
             </select>
-
             <div class="form-group">
                 <input type="text" class="form-control" name="textSearch" placeholder="Search" value="${param.textSearch}">
             </div>

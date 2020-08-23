@@ -6,7 +6,6 @@
 package mapper;
 
 import dtos.RankDTO;
-import dtos.RoleDTO;
 import java.sql.ResultSet;
 import org.apache.log4j.Logger;
 
@@ -24,13 +23,13 @@ public class RankMapper implements RowMapper<RankDTO> {
         try {
             rank.setId(rs.getLong("id"));
         } catch (Exception e) {
+            logger.warn("RankMapper_Exception " + e.getMessage());
         }
 
         try {
             rank.setName(rs.getString("name"));
         } catch (Exception e) {
             logger.error("RankMapper_Exception " + e.getMessage());
-            e.printStackTrace();
         }
         return rank;
     }

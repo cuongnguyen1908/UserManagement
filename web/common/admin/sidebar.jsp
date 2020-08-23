@@ -13,7 +13,6 @@
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
                 <a class="nav-link" href='<c:url value="/home"/>'>
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Home</span></a>
             </li>
             
@@ -23,7 +22,6 @@
             </div>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap" aria-expanded="true" aria-controls="collapseBootstrap">
-                    <i class="far fa-fw fa-window-maximize"></i>
                     <span>Manager</span>
                 </a>
                 <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">

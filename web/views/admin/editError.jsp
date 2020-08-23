@@ -103,7 +103,7 @@
                 <c:if test="${not empty USER.id}">
                     <c:forEach var="item" items="${ROLELIST.listResult}">
                         <option value="${item.id}" 
-                                <c:if test="${ROLELIST.id == item.id}">selected="selected"</c:if>>
+                                <c:if test="${item.id == USER.role.id}">selected="selected"</c:if>>
                             ${item.name}
                         </option>
                     </c:forEach>

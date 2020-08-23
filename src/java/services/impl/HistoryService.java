@@ -7,7 +7,6 @@ package services.impl;
 
 import daos.IHistoryDAO;
 import dtos.HistoryDTO;
-import java.sql.Timestamp;
 import java.util.List;
 import javax.inject.Inject;
 import services.IHistoryService;

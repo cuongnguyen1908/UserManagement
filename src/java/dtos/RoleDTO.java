@@ -5,11 +5,13 @@
  */
 package dtos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author nguyen
  */
-public class RoleDTO extends AbstractDTO<RoleDTO>{
+public class RoleDTO extends AbstractDTO<RoleDTO> implements Serializable{
     private String name;
 
     public String getName() {

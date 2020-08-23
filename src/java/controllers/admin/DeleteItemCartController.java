@@ -7,7 +7,6 @@ package controllers.admin;
 
 import cart.CartObject;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,8 +34,6 @@ public class DeleteItemCartController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-
         String[] ids = request.getParameterValues("ids");
         if (ids.length > 0) {
             CartObject cart = (CartObject) SessionUtil.getInstance().getValue(request, "CART");

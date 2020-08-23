@@ -47,7 +47,6 @@ public class HomeController extends HttpServlet {
             UserDTO userDetail = this.userService.findUserByIdAndStatus(test.get().getId(), true);
             HistoryDTO history = new HistoryDTO();
             history.setListResult(this.historyService.findHistoryByUserId(test.get().getId()));
-            System.out.println("history: " + history.getListResult().get(0).getDate());
             RankDTO rank = this.rankService.findRankById(userDetail.getRankId());
             request.setAttribute("RANK", rank);
             request.setAttribute("HISTORY", history);

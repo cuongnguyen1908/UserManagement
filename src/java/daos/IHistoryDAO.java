@@ -6,7 +6,6 @@
 package daos;
 
 import dtos.HistoryDTO;
-import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -14,9 +13,9 @@ import java.util.List;
  * @author nguyen
  */
 public interface IHistoryDAO {
-            Long saveHistory(Long id, String date, String action);
-            
-                    List<HistoryDTO> findHistoryByUserId(Long id);
 
+    Long saveHistory(Long id, String date, String action);
+
+    List<HistoryDTO> findHistoryByUserId(Long id);
 
 }

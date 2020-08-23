@@ -11,7 +11,7 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="img-profile rounded-circle" src="./template/admin/img/man.png" style="max-width: 60px">
+                                <img class="img-profile rounded-circle" src="/images/${USERMODEL.photo}" style="max-width: 60px">
                                 <span class="ml-2 d-none d-lg-inline text-white small">${USERMODEL.fullName}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

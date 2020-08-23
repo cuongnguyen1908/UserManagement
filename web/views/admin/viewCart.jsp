@@ -56,14 +56,7 @@
 
                         </tr>
                     </c:forEach>
-
-
-
                 </c:if>
-
-
-
-
                 </tbody>
             </table>
             <c:if test="${not empty CART.cart}">

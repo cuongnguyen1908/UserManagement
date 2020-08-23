@@ -5,11 +5,13 @@
  */
 package dtos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author nguyen
  */
-public class FlagDTO {
+public class FlagDTO implements Serializable{
     boolean flag;
 
     public boolean isFlag() {

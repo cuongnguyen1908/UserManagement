@@ -2,6 +2,6 @@
 <Context antiJARLocking="true" path="/">
     <Resource name="DS007" type="javax.sql.DataSource" auth="Container" 
     driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-    url="jdbc:sqlserver://localhost:1433;databaseName=UserManagement"
-    username="sa" password="Cuong123"/>
+    url="jdbc:sqlserver://10.211.55.3:1433;databaseName=UserManagement"
+    username="sa" password="123456"/>
 </Context>

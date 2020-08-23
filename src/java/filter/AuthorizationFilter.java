@@ -26,6 +26,8 @@ public class AuthorizationFilter implements Filter {
 
     private ServletContext context;
 
+    
+    @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
             FilterChain chain)
             throws IOException, ServletException {
@@ -51,15 +53,11 @@ public class AuthorizationFilter implements Filter {
 
     }
 
-    /**
-     * Return the filter configuration object for this filter.
-     */
+    @Override
     public void destroy() {
     }
 
-    /**
-     * Init method for this filter
-     */
+    
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         this.context = filterConfig.getServletContext();
